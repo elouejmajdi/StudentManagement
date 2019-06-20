@@ -1,0 +1,35 @@
+.pointer{
+    cursor: pointer;
+}
+
+.app-header{
+    background-color: darkturquoise;
+    text-align: center;
+    color: azure;
+    font-size: larger;
+}
+
+.app-footer{
+    background-color: darkturquoise;
+    text-align: center;
+    color: azure;
+    font-size: x-small;
+}
+
+.app-container{
+    background-color: azure;
+    padding: 10px;
+}
+
+.grid-header{
+    background-color: darkturquoise;
+    color: azure;
+}
+
+.grid-rows{
+    background-color: white;
+}
+
+.active-row{
+    background-color: aliceblue;
+}

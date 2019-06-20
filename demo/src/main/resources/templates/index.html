@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head"></head>
+
+<body ng-app="app" ng-controller="appController">
+	<div class="container">
+		<th:block th:replace="fragments/app :: app-header"></th:block>
+		<div class="row app-container">
+			<div class="col-md-4">
+				<form>
+					<div class="form-group">
+						<label for="stdId">ID</label> <input type="number"
+							class="form-control" id="stdId" placeholder="Student ID"
+							ng-model="formModel.id">
+					</div>
+					<div class="form-group">
+						<label for="firstName">First Name</label> <input type="text"
+							class="form-control" id="firstName" placeholder="First Name"
+							ng-model="formModel.firstName">
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name</label> <input type="text"
+							class="form-control" id="lastName" placeholder="Last Name"
+							ng-model="formModel.lastName">
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label> <input type="email"
+							class="form-control" id="email" placeholder="student@email.com"
+							ng-model="formModel.email">
+					</div>
+					<div class="form-group">
+						<label for="date">Registration Date</label> <input type="text"
+							class="form-control" id="date" datetime="yyyy-MM-dd HH:mm:ss"
+							placeholder="yyyy-MM-dd" ng-model="formModel.regDate">
+					</div>
+					<div class="form-group">
+						<button class="btn" ng-click="new()">New</button>
+						<button class="btn btn-success" ng-click="save(formModel)">Save</button>
+						<button class="btn btn-primary" ng-click="update(formModel)">Update</button>
+						<button class="btn btn-danger" ng-click="delete(formModel)">Delete</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-8">
+				<table class="table table-bordered">
+					<thead class="grid-header">
+						<th>ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Reg. Date</th>
+					</thead>
+					<tbody class="grid-rows">
+						<tr class="pointer" id="{{model.id}}"
+							ng-repeat="model in gridModel"
+							ng-click="bindGridModelToForm(model)">
+							<td>{{model.id}}</td>
+							<td>{{model.firstName}}</td>
+							<td>{{model.lastName}}</td>
+							<td>{{model.email}}</td>
+							<td>{{model.regDate}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<th:block th:replace="fragments/app :: app-footer"></th:block>
+	</div>
+</body>
+</html>
